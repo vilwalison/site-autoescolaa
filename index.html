@@ -561,42 +561,56 @@
    <script>
     </div>
   </section>
-  </section>
 
-<footer>
-  <div class="container">
-    <div class="foot-bottom">
-      <span>© 2026 Vilwalison Vinicius</span>
-    </div>
-  </div>
-</footer>
+       </footer>
 
-<!-- BOTÃO WHATSAPP -->
-<a href="https://wa.me/5582991848062" target="_blank" class="wpp-fab" aria-label="WhatsApp">
-  <svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 24 24" fill="white">
-    <path d="M20.52 3.48A11.8 11.8 0 0 0 12.06 0C5.53 0 .2 5.33.2 11.86c0 2.09.55 4.13 1.59 5.92L0 24l6.38-1.67a11.84 11.84 0 0 0 5.68 1.45h.01c6.53 0 11.86-5.33 11.86-11.86 0-3.16-1.23-6.13-3.41-8.44Z"/>
-  </svg>
-</a>
+  <!-- Botão WhatsApp -->
+  <a href="https://wa.me/5582991848062?text=Ol%C3%A1%2C%20Vilwalison.%20Gostaria%20de%20mais%20informa%C3%A7%C3%B5es%20sobre%20suas%20aulas."
+     target="_blank"
+     class="wpp-fab"
+     aria-label="WhatsApp">
 
-<script>
-  // FAQ accordion
-  document.querySelectorAll('.faq-q').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const item = btn.parentElement;
-      item.classList.toggle('open');
+    <svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 24 24" fill="white">
+      <path d="M20.52 3.48A11.8 11.8 0 0 0 12.06 0C5.53 0 .2 5.33.2 11.86c0 2.09.55 4.13 1.59 5.92L0 24l6.38-1.67a11.84 11.84 0 0 0 5.68 1.45h.01c6.53 0 11.86-5.33 11.86-11.86 0-3.16-1.23-6.13-3.41-8.44ZM12.07 21.7h-.01a9.8 9.8 0 0 1-5-1.36l-.36-.21-3.79.99 1.01-3.7-.23-.38a9.82 9.82 0 0 1-1.5-5.2c0-5.42 4.41-9.83 9.83-9.83 2.62 0 5.08 1.02 6.93 2.87a9.75 9.75 0 0 1 2.88 6.94c0 5.42-4.41 9.83-9.83 9.83Z"/>
+    </svg>
+
+  </a>
+
+  <!-- Scripts -->
+  <script>
+    document.querySelectorAll('.faq-item .faq-q').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const item = btn.parentElement;
+        const open = item.classList.contains('open');
+        document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+        if (!open) item.classList.add('open');
+      });
     });
-  });
 
-  // Mobile menu (se existir)
-  const navToggle = document.getElementById('navToggle');
-  const mobileMenu = document.getElementById('mobileMenu');
+    const track = document.getElementById('track');
+    const prev = document.getElementById('prev');
+    const next = document.getElementById('next');
 
-  if (navToggle && mobileMenu) {
-    navToggle.addEventListener('click', () => {
-      mobileMenu.classList.add('open');
-    });
-  }
-</script>
+    const getStep = () => {
+      const card = track?.querySelector('.testimonial');
+      if (!card) return 320;
+      return card.getBoundingClientRect().width + 24;
+    };
+
+    prev?.addEventListener('click', () => track.scrollBy({ left: -getStep(), behavior: 'smooth' }));
+    next?.addEventListener('click', () => track.scrollBy({ left: getStep(), behavior: 'smooth' }));
+
+    const navToggle = document.getElementById('navToggle');
+    const navClose = document.getElementById('navClose');
+    const mobileMenu = document.getElementById('mobileMenu');
+
+    navToggle?.addEventListener('click', () => mobileMenu.classList.add('open'));
+    navClose?.addEventListener('click', () => mobileMenu.classList.remove('open'));
+
+    mobileMenu?.querySelectorAll('a').forEach(a =>
+      a.addEventListener('click', () => mobileMenu.classList.remove('open'))
+    );
+  </script>
 
 </body>
 </html>
