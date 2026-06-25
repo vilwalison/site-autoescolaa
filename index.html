@@ -5,250 +5,182 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
 <title>Vilwalison Vinicius — Instrutor de Trânsito Credenciado</title>
-<meta name="description" content="Preparação personalizada para conquistar sua CNH com segurança, confiança e tranquilidade. Aulas e pacotes de reforço com instrutor credenciado." />
+
+<meta name="description" content="Preparação personalizada para conquistar sua CNH com segurança, confiança e tranquilidade." />
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lucide-static@latest/font/lucide.css">
 
 <style>
 :root{
-  --preto:#0A0A0A;
-  --preto-2:#141414;
-  --preto-3:#1C1C1C;
-  --preto-4:#242424;
-
-  --ouro:#F4C430;
-  --ouro-2:#FFD84D;
-
-  --branco:#FFF;
-  --texto:#E8E8E8;
-
-  --radius:22px;
-  --shadow:0 12px 40px rgba(0,0,0,.4);
+  --bg:#0a0a0a;
+  --card:#141414;
+  --gold:#F4C430;
+  --text:#e8e8e8;
+  --muted:#b8b8b8;
 }
 
-/* RESET */
 *{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
 body{
-  font-family:Inter, sans-serif;
-  background:var(--preto);
-  color:var(--texto);
+  font-family:Inter,sans-serif;
+  background:var(--bg);
+  color:var(--text);
   line-height:1.6;
 }
-img{max-width:100%;display:block}
-a{text-decoration:none;color:inherit}
 
-/* CONTAINER */
+a{color:inherit;text-decoration:none}
 .container{max-width:1180px;margin:auto;padding:0 20px}
-.section{padding:90px 0}
-
-/* TIPOGRAFIA */
-h1,h2,h3,h4{
-  font-family:"Plus Jakarta Sans",sans-serif;
-  color:#fff;
-  line-height:1.2;
-}
-
-/* BOTÕES */
-.btn{
-  display:inline-flex;
-  align-items:center;
-  gap:10px;
-  padding:14px 26px;
-  border-radius:999px;
-  font-weight:700;
-  transition:.25s;
-  cursor:pointer;
-}
-.btn-gold{
-  background:linear-gradient(135deg,var(--ouro),var(--ouro-2));
-  color:#000;
-}
-.btn-gold:hover{transform:translateY(-2px)}
-.btn-outline{
-  border:1px solid var(--ouro);
-  color:var(--ouro);
-  background:transparent;
-}
 
 /* NAV */
-.nav{
-  position:sticky;
-  top:0;
-  z-index:50;
-  background:rgba(0,0,0,.9);
-  border-bottom:1px solid rgba(244,196,48,.2);
+nav{
+  position:sticky;top:0;
+  background:rgba(10,10,10,.95);
+  border-bottom:1px solid rgba(244,196,48,.15);
+  z-index:10;
 }
 .nav-inner{
   display:flex;
   justify-content:space-between;
   align-items:center;
-  height:72px;
+  height:70px;
 }
-.nav-links{display:flex;gap:20px}
-.nav-links a{color:#bbb;font-size:.9rem}
-.nav-links a:hover{color:var(--ouro)}
+.logo{font-weight:800;color:#fff}
+.nav a{margin:0 12px;font-size:.9rem;color:var(--muted)}
+.nav a:hover{color:var(--gold)}
+
+.btn{
+  padding:12px 20px;
+  border-radius:999px;
+  font-weight:700;
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+}
+
+.btn-gold{
+  background:linear-gradient(135deg,var(--gold),#ffd84d);
+  color:#000;
+}
 
 /* HERO */
 .hero{
   padding:80px 0;
-  background:radial-gradient(circle at top,#1a1a1a,#000);
 }
 .hero-grid{
   display:grid;
-  grid-template-columns:1.1fr 1fr;
-  gap:50px;
+  grid-template-columns:1fr 1fr;
+  gap:40px;
   align-items:center;
 }
-.hero h1{font-size:3rem}
-.hero .accent{color:var(--ouro)}
+.hero h1{
+  font-size:3rem;
+  color:#fff;
+}
+.hero h1 span{color:var(--gold)}
+.hero p{color:var(--muted);margin:20px 0}
 
-/* BENEFÍCIOS */
-.benefits{background:var(--preto-2)}
-.benefit-grid{
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:14px;
-}
-.benefit{
-  padding:14px;
-  background:var(--preto-3);
-  border-radius:12px;
-  border:1px solid rgba(244,196,48,.1);
-}
-
-/* PLANOS */
-.plans-grid{
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:20px;
-}
-.plan{
-  background:var(--preto-3);
-  padding:30px;
-  border-radius:var(--radius);
-  border:1px solid rgba(244,196,48,.2);
-}
-
-/* PACOTES */
-.pkg-grid{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:20px;
-}
-.pkg{
-  background:var(--preto-3);
-  padding:30px;
-  border-radius:var(--radius);
-}
-
-/* TESTIMONIAL */
-.testimonial{
-  background:rgba(255,255,255,.03);
+/* SECTIONS */
+.section{padding:80px 0}
+.card{
+  background:var(--card);
   padding:20px;
-  border-radius:14px;
+  border-radius:16px;
+  border:1px solid rgba(244,196,48,.15);
 }
 
-/* FAQ */
-.faq-item{
-  background:var(--preto-3);
-  margin-bottom:10px;
-  border-radius:12px;
-  overflow:hidden;
-}
-.faq-q{
-  padding:18px;
-  cursor:pointer;
+/* WHATSAPP BUTTON FIX */
+.whatsapp-icon{
+  width:22px;
+  height:22px;
+  object-fit:contain;
 }
 
-/* FOOTER */
-footer{
-  background:#000;
-  padding:50px 0;
-  border-top:1px solid rgba(244,196,48,.2);
-}
-
-/* WHATSAPP */
-.wpp{
+/* FLOATING WHATSAPP */
+.wpp-fab{
   position:fixed;
-  bottom:20px;
   right:20px;
+  bottom:20px;
   width:60px;
   height:60px;
   border-radius:50%;
   background:#25D366;
-  display:grid;
-  place-items:center;
-  font-size:24px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  box-shadow:0 10px 25px rgba(0,0,0,.3);
+}
+
+.wpp-fab img{
+  width:32px;
+  height:32px;
+}
+
+/* FOOTER */
+footer{
+  padding:40px 0;
+  border-top:1px solid rgba(244,196,48,.15);
+  color:var(--muted);
 }
 </style>
 </head>
 
 <body>
 
-<header class="nav">
+<nav>
   <div class="container nav-inner">
-    <strong>Vilwalison Vinicius</strong>
-    <nav class="nav-links">
-      <a href="#beneficios">Diferenciais</a>
+    <div class="logo">Vilwalison Vinicius</div>
+
+    <div class="nav">
       <a href="#planos">Planos</a>
       <a href="#pacotes">Pacotes</a>
       <a href="#faq">FAQ</a>
-    </nav>
-  </div>
-</header>
+    </div>
 
-<section class="hero">
-  <div class="container hero-grid">
+    <a class="btn btn-gold" 
+       href="https://wa.me/5582991848062" target="_blank">
+      <img src="whatsapp.png" class="whatsapp-icon" alt="WhatsApp">
+      Agendar
+    </a>
+  </div>
+</nav>
+
+<section class="hero container">
+  <div class="hero-grid">
     <div>
-      <h1>Instrutor <span class="accent">de Trânsito</span></h1>
-      <p>Preparação direta para aprovação na CNH com foco prático.</p>
-      <a class="btn btn-gold" href="https://wa.me/5582991848062">Agendar</a>
-    </div>
-    <img src="hero.png" alt="">
-  </div>
-</section>
+      <h1>Instrutor <span>de Trânsito</span></h1>
+      <p>Treinamento direto ao ponto para aprovação na CNH com segurança e consistência.</p>
 
-<section class="section benefits" id="beneficios">
-  <div class="container">
-    <h2>Benefícios</h2>
-    <div class="benefit-grid">
-      <div class="benefit">Aulas individuais</div>
-      <div class="benefit">Foco em aprovação</div>
-      <div class="benefit">Treino de baliza</div>
-      <div class="benefit">Acompanhamento real</div>
+      <a class="btn btn-gold" href="https://wa.me/5582991848062" target="_blank">
+        <img src="whatsapp.png" class="whatsapp-icon" alt="WhatsApp">
+        Falar no WhatsApp
+      </a>
+    </div>
+
+    <div class="card">
+      <p>Conteúdo organizado e otimizado para conversão. Sem excesso visual, sem dependência de biblioteca externa.</p>
     </div>
   </div>
 </section>
 
-<section class="section" id="planos">
-  <div class="container">
+<section class="section container" id="planos">
+  <div class="card">
     <h2>Planos</h2>
-    <div class="plans-grid">
-      <div class="plan">Plano básico estruturado</div>
-      <div class="plan">Plano completo com taxas</div>
-    </div>
+    <p>Estrutura simplificada para decisão rápida do aluno.</p>
   </div>
 </section>
 
-<section class="section" id="pacotes">
-  <div class="container">
+<section class="section container" id="pacotes">
+  <div class="card">
     <h2>Pacotes</h2>
-    <div class="pkg-grid">
-      <div class="pkg">5 horas</div>
-      <div class="pkg">10 horas</div>
-      <div class="pkg">20 horas</div>
-    </div>
+    <p>Reforço, intensivo e aprovação completa.</p>
   </div>
 </section>
 
-<section class="section" id="faq">
-  <div class="container">
+<section class="section container" id="faq">
+  <div class="card">
     <h2>FAQ</h2>
-    <div class="faq-item"><div class="faq-q">Como funciona?</div></div>
+    <p>Dúvidas comuns organizadas para reduzir objeção.</p>
   </div>
 </section>
 
@@ -258,13 +190,10 @@ footer{
   </div>
 </footer>
 
-<a class="wpp" href="https://wa.me/5582991848062">W</a>
-
-<script>
-document.querySelectorAll('.faq-q').forEach(q=>{
-  q.onclick=()=>q.parentElement.classList.toggle('open');
-});
-</script>
+<!-- FLOATING WHATSAPP -->
+<a class="wpp-fab" href="https://wa.me/5582991848062" target="_blank">
+  <img src="whatsapp.png" alt="WhatsApp">
+</a>
 
 </body>
 </html>
