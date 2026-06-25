@@ -561,53 +561,78 @@
    <script>
     </div>
   </section>
-  <!-- Botão WhatsApp -->
-  <a href="https://wa.me/5582991848062?text=Ol%C3%A1%2C%20Vilwalison.%20Gostaria%20de%20mais%20informa%C3%A7%C3%B5es%20sobre%20suas%20aulas."
-     target="_blank"
-     class="wpp-fab"
-     aria-label="WhatsApp">
 
-    <svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 24 24" fill="white">
-      <path d="M20.52 3.48A11.8 11.8 0 0 0 12.06 0C5.53 0 .2 5.33.2 11.86c0 2.09.55 4.13 1.59 5.92L0 24l6.38-1.67a11.84 11.84 0 0 0 5.68 1.45h.01c6.53 0 11.86-5.33 11.86-11.86 0-3.16-1.23-6.13-3.41-8.44ZM12.07 21.7h-.01a9.8 9.8 0 0 1-5-1.36l-.36-.21-3.79.99 1.01-3.7-.23-.38a9.82 9.82 0 0 1-1.5-5.2c0-5.42 4.41-9.83 9.83-9.83 2.62 0 5.08 1.02 6.93 2.87a9.75 9.75 0 0 1 2.88 6.94c0 5.42-4.41 9.83-9.83 9.83Z"/>
-    </svg>
+       <footer>
+    <div class="container">
+      <div class="foot-grid">
+        <div>
+          <div class="foot-brand">
+            <div class="brand-mark"><img src="logo.png" alt="VV"></div>
+            <div>
+              Vilwalison Vinicius
+              <small>Instrutor de Trânsito Credenciado</small>
+            </div>
+          </div>
+          <p style="max-width:380px;font-size:.92rem">Atendimento profissional, humanizado e direcionado para a aprovação. Compromisso com sua segurança e com seus objetivos.</p>
+        </div>
+        <div>
+          <h5>Navegação</h5>
+          <ul>
+            <li><a href="#beneficios">Diferenciais</a></li>
+            <li><a href="#planos">Planos</a></li>
+            <li><a href="#pacotes">Pacotes</a></li>
+            <li><a href="#depoimentos">Depoimentos</a></li>
+            <li><a href="#faq">Perguntas Frequentes</a></li>
+          </ul>
+        </div>
+        <div>
+          <h5>Contato</h5>
+          <ul>
+            <li><i class="lucide lucide-phone"></i> (82) 99184-8062</li>
+            <li><i class="lucide lucide-message-circle"></i> <a href="https://wa.me/5582991848062" target="_blank">WhatsApp</a></li>
+            <li><i class="lucide lucide-map-pin"></i> Rua Doutor Getúlio Vargas, 341 — Feliz Deserto/AL</li>
+          </ul>
+        </div>
+      </div>
+      <div class="foot-bottom">
+        <span>© 2026 Vilwalison Vinicius. Todos os direitos reservados.</span>
+        <span class="foot-tagline">Compromisso com sua segurança e com seus objetivos.</span>
+      </div>
+    </div>
+  </footer>
 
+  <a href="https://wa.me/5582991848062?text=Ol%C3%A1%2C%20Vilwalison.%20Gostaria%20de%20mais%20informa%C3%A7%C3%B5es%20sobre%20suas%20aulas." target="_blank" class="wpp-fab" aria-label="WhatsApp">
+    <i class="lucide lucide-message-circle"></i>
   </a>
-
-  <!-- Scripts -->
   <script>
-    document.querySelectorAll('.faq-item .faq-q').forEach(btn => {
-      btn.addEventListener('click', () => {
+    // FAQ accordion
+    document.querySelectorAll('.faq-item .faq-q').forEach(btn=>{
+      btn.addEventListener('click',()=>{
         const item = btn.parentElement;
         const open = item.classList.contains('open');
-        document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
-        if (!open) item.classList.add('open');
+        document.querySelectorAll('.faq-item').forEach(i=>i.classList.remove('open'));
+        if(!open) item.classList.add('open');
       });
     });
 
+    // Carousel
     const track = document.getElementById('track');
     const prev = document.getElementById('prev');
     const next = document.getElementById('next');
-
     const getStep = () => {
-      const card = track?.querySelector('.testimonial');
-      if (!card) return 320;
+      const card = track.querySelector('.testimonial');
+      if(!card) return 320;
       return card.getBoundingClientRect().width + 24;
     };
+    prev.addEventListener('click',()=>track.scrollBy({left:-getStep(),behavior:'smooth'}));
+    next.addEventListener('click',()=>track.scrollBy({left:getStep(),behavior:'smooth'}));
 
-    prev?.addEventListener('click', () => track.scrollBy({ left: -getStep(), behavior: 'smooth' }));
-    next?.addEventListener('click', () => track.scrollBy({ left: getStep(), behavior: 'smooth' }));
-
+    // Mobile nav
     const navToggle = document.getElementById('navToggle');
     const navClose = document.getElementById('navClose');
     const mobileMenu = document.getElementById('mobileMenu');
-
-    navToggle?.addEventListener('click', () => mobileMenu.classList.add('open'));
-    navClose?.addEventListener('click', () => mobileMenu.classList.remove('open'));
-
-    mobileMenu?.querySelectorAll('a').forEach(a =>
-      a.addEventListener('click', () => mobileMenu.classList.remove('open'))
-    );
+    navToggle?.addEventListener('click',()=>mobileMenu.classList.add('open'));
+    navClose?.addEventListener('click',()=>mobileMenu.classList.remove('open'));
+    mobileMenu?.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>mobileMenu.classList.remove('open')));
   </script>
-
-</body>
-</html>
+</
